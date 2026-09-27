@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mühendislik Tasarım Günlüğü | TunaE96 & SAVAR-16</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --accent-blue: #58a6ff;
+      --accent-green: #3fb950;
+      --text: #c9d1d9;
+      --text-muted: #8b949e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+    header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 0.5rem; }
+    header p { color: var(--text-muted); font-size: 1.1rem; }
+    
+    .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+    @media(min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
+    
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+    .card h2 { color: var(--accent-blue); margin-bottom: 0.8rem; font-size: 1.4rem; }
+    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: bold; margin-bottom: 1rem; }
+    .badge-robot { background: rgba(56, 139, 253, 0.15); color: var(--accent-blue); }
+    .badge-aero { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+    .card ul { list-style: none; margin-top: 1rem; }
+    .card li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .card li::before { content: "▹ "; color: var(--accent-blue); font-weight: bold; }
+    
+    .timeline { border-left: 2px solid var(--border); padding-left: 1.5rem; margin-left: 0.5rem; }
+    .timeline-item { margin-bottom: 2rem; position: relative; }
+    .timeline-item::before { content: ""; position: absolute; left: -1.9rem; top: 0.4rem; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-blue); }
+    .timeline-item h3 { color: #fff; font-size: 1.2rem; }
+    .timeline-item span { color: var(--text-muted); font-size: 0.85rem; }
+    .timeline-item p { margin-top: 0.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Tasarım ve Proje Geliştirici Günlüğü</h1>
+      <p>Gömülü Sistemler, SLAM & Aviyonik Güdüm Simülasyonu (Ekim 2026 - Ocak 2027)</p>
+    </header>
+
+    <main>
+      <!-- Projeler Grid -->
+      <section class="grid">
+        <!-- TunaE96 -->
+        <article class="card">
+          <span class="badge badge-robot">Mobil Robotik & SLAM</span>
+          <h2>TunaE96</h2>
+          <p>4 tekerlekten çekişli (4WD) mobil robot platformunun fiziksel dünyadaki verilerini Godot 3D ortamında gerçek zamanlı dijital ikize dönüştüren otonom haritalama sistemi.</p>
+          <ul>
+            <li><strong>Kontrol:</strong> STM32 32-bit Mikrodenetleyici</li>
+            <li><strong>Algılama:</strong> 2D Lidar + IMU Sensör Füzyonu</li>
+            <li><strong>Kablosuz Hat:</strong> Bluetooth SPP Telemetri</li>
+            <li><strong>Öne Çıkan Özellik:</strong> Çift yönlü kontrol (Godot üzerinden waypoint ile rota çizimi)</li>
+          </ul>
+        </article>
+
+        <!-- SAVAR-16 -->
+        <article class="card">
+          <span class="badge badge-aero">Aviyonik & Güdüm</span>
+          <h2>SAVAR-16</h2>
+          <p>F-16 aviyonik ve mekanik arayüzleriyle tam uyumlu, elektronik harp koşullarında yüksek vuruş hassasiyeti sunan hava-hava füze simülasyonu.</p>
+          <ul>
+            <li><strong>Uyum:</strong> F-16 İstasyon/MIL-STD Arayüz Modeli</li>
+            <li><strong>Güdüm:</strong> Genişletilmiş Oransal Seyrüsefer (APN)</li>
+            <li><strong>Savunma:</strong> Chaff/Flare & Karartmaya Dirençli (ECCM)</li>
+            <li><strong>Arayüz:</strong> Gerçekçi F-16 HUD ve Fırlatma Zarfı (DLZ)</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Aylık DevLog -->
+      <section>
+        <h2 style="margin-bottom: 1.5rem; color: #fff;">Aylık Gelişim Raporları (DevLog)</h2>
+        <div class="timeline">
+          
+          <div class="timeline-item">
+            <h3>Ekim 2026: Sistem Mimarisi & Temel Altyapı</h3>
+            <span>Durum: Planlandı / Devam Ediyor</span>
+            <p><strong>TunaE96:</strong> 4WD şasi montajı, motor sürücü testleri ve Lidar sürücüsünün STM32 üzerinde ayağa kaldırılması.<br>
+            <strong>SAVAR-16:</strong> F-16 aerodinamik itki/sürükleme modelleri ve temel APN güdüm matematiksel altyapısının Godot'da kodlanması.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Kasım 2026: Haberleşme ve Güdüm Entegrasyonu</h3>
+            <span>Durum: Beklemede</span>
+            <p><strong>TunaE96:</strong> Bluetooth SPP üzerinden ikili (binary) telemetri aktarımı ve motor PWM kalibrasyonu.<br>
+            <strong>SAVAR-16:</strong> Arayıcı başlık kilit mantığı ve F-16 kanat altı fırlatma dinamiğinin modellenmesi.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Aralık 2026: İleri Seviye Özellikler & Simülasyon</h3>
+            <span>Durum: Beklemede</span>
+            <p><strong>TunaE96:</strong> Godot 3D üzerinde nokta bulutundan dinamik harita çıkarımı ve rota planlama.<br>
+            <strong>SAVAR-16:</strong> Chaff/Flare karşı tedbir algoritmaları ve kokpit HUD gösterge entegrasyonu.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Ocak 2027: Test, Doğrulama & Dönem Teslimi</h3>
+            <span>Durum: Beklemede</span>
+            <p>Fiziksel robot doğrulama testleri, füze vuruş olasılığı (Pk) analizleri, proje raporu ve final sunumu.</p>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
